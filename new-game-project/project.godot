@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="GameDev Week8"
+run/main_scene="uid://ctwh7tpebyrmn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=400
+window/size/viewport_height=400
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
@@ -25,3 +32,4 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

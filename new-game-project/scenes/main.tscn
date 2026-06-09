@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ctwh7tpebyrmn"]
+
+[ext_resource type="Texture2D" uid="uid://5potx17lumyu" path="res://Assets/minesweeper_atlas.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bgiiyxwct24xd" path="res://scripts/minescript.gd" id="2_0wfyh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
+texture = ExtResource("1_o5qli")
+margins = Vector2i(4, 4)
+separation = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sugp2"]
+sources/0 = SubResource("TileSetAtlasSource_0wfyh")
+
+[node name="Main" type="Node" unique_id=660626619]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1152979840]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1755557926]
+tile_set = SubResource("TileSet_sugp2")
+format = 2
+script = ExtResource("2_0wfyh")
+columns = 12
+rows = 12
+number_of_mines = 14
