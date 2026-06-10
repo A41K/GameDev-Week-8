@@ -46,6 +46,9 @@ func _ready():
 
 func _input(event: InputEvent):
 	
+	if is_game_finished:
+		return
+	
 	if !(event is InputEventMouseButton) || !event.pressed:
 		return
 		
@@ -159,4 +162,15 @@ func place_flag(cell_coord: Vector2i):
 	
 	flag_change.emit(flags_placed)
 	
+	var count = 0 
+	for flag_cell in cells_with_flags:
+		for mine_cell in cells_with_mines:
+			if flag_cell.x == mine_cell.x and flag_cell.y == mine_cell.y:
+				count += 1
 	
+	if count == cells_with_mines.size():
+		win()
+		
+func win():
+	is_game_finished = true
+	game_won.emit()
