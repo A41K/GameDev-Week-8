@@ -25,7 +25,10 @@ separation = Vector2i(8, 8)
 7:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
+2:2/next_alternative_id = 2
 2:2/0 = 0
+2:2/1 = 1
+2:2/1/custom_data_0 = true
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
@@ -38,11 +41,14 @@ separation = Vector2i(8, 8)
 4:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_sugp2"]
+custom_data_layer_0/name = "has_mine"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0wfyh")
 
 [node name="Main" type="Node" unique_id=660626619]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1152979840]
+zoom = Vector2(2, 2)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1755557926]
 tile_set = SubResource("TileSet_sugp2")
