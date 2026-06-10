@@ -85,6 +85,11 @@ func on_cell_clicked(cell_coord: Vector2i):
 	cells_checked_recursively.append(cell_coord)
 	handle_cells(cell_coord, true)
 	
+	if cells_with_flags.has(cell_coord):
+		flags_placed -= 1
+		flag_change.emit(flags_placed)
+		cells_with_flags.erase(cell_coord)
+	
 
 func handle_cells(cell_coord: Vector2i, should_stop_after_mine: bool = false):
 	var tile_data = get_cell_tile_data(DEFAULT_LAYER, cell_coord)
@@ -107,6 +112,12 @@ func handle_cells(cell_coord: Vector2i, should_stop_after_mine: bool = false):
 	
 	else:
 		set_tile_cell(cell_coord, "%d" % mine_count)
+		
+		
+	if cells_with_flags.has(cell_coord):
+		flags_placed -= 1
+		flag_change.emit(flags_placed)
+		cells_with_flags.erase(cell_coord)
 	
 	
 func handle_surrounding_cell(cell_coord: Vector2i):

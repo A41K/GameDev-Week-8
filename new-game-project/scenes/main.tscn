@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://5potx17lumyu" path="res://Assets/minesweeper_atlas.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bgiiyxwct24xd" path="res://scripts/minescript.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ibwvjvbw3g6s" path="res://scenes/game_state_manager.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b764l8cosgmy2" path="res://scenes/ui.tscn" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -48,7 +50,7 @@ sources/0 = SubResource("TileSetAtlasSource_0wfyh")
 [node name="Main" type="Node" unique_id=660626619]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1152979840]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1755557926]
 tile_set = SubResource("TileSet_sugp2")
@@ -57,3 +59,9 @@ script = ExtResource("2_0wfyh")
 columns = 12
 rows = 12
 number_of_mines = 14
+
+[node name="UI" parent="." unique_id=1613114718 instance=ExtResource("4_jyhfs")]
+
+[node name="GameStateManager" parent="." unique_id=2094812430 node_paths=PackedStringArray("mines_grid", "ui") instance=ExtResource("3_sugp2")]
+mines_grid = NodePath("../TileMap")
+ui = NodePath("../UI")
